@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Events from './pages/Events';
 import {
   LayoutDashboard,
   Calendar,
@@ -33,6 +34,9 @@ import {
   Bar,
 } from 'recharts';
 
+
+import { Link, NavLink } from 'react-router-dom';
+
 const attendanceData = [
   { name: 'Ene', value: 1200 },
   { name: 'Feb', value: 1800 },
@@ -62,8 +66,8 @@ const COLORS = ['#94A3B8', '#60A5FA', '#34D399', '#F472B6', '#A78BFA'];
 
 const navigationItems = [
   { icon: LayoutDashboard, label: 'Dashboard', active: true },
-  { icon: Calendar, label: 'Eventos', active: false },
-  { icon: Users, label: 'Asistentes', active: false },
+  { icon: Calendar, label: 'Eventos', path: 'Events'},
+  { icon: Users, label: 'Asistentes', path: '/providers'},
   { icon: Settings, label: 'Configuración', active: false },
 ];
 
@@ -169,7 +173,7 @@ function Dashboard() {
                 />
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2"> 
                 <button className="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 flex items-center gap-2">
                   <CalendarDays className="w-4 h-4" />
                   <span className="text-sm font-medium">Últimos 30 días</span>
